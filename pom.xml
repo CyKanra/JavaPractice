@@ -104,6 +104,8 @@
                     <includes>
                         <include>com/javapractice/hadoop/**</include>
                     </includes>
+                    <source>11</source>
+                    <target>11</target>
                 </configuration>
             </plugin>
         </plugins>
