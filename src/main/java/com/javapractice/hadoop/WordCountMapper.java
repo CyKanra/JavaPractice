@@ -20,7 +20,6 @@ public class WordCountMapper extends Mapper<LongWritable, Text, Text, IntWritabl
             throws IOException, InterruptedException {
         //一行文字を取得
         String str = value.toString();
-        System.out.println("======>"+str);
         //文字を区切って単語数組になる
         String[] strs = str.split(" ");
         //出力

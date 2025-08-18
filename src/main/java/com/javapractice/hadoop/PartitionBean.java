@@ -37,9 +37,9 @@ public class PartitionBean implements Writable {
 
     @Override
     public String toString() {
-        return id + " | " +
-                model + " | " +
-                netIp + " | " +
+        return id + " " +
+                model + " " +
+                netIp + " " +
                 usageTime;
     }
 
