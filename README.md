@@ -1,2 +1,2 @@
-# E-mail
-Java E-mail
+# JavaPractice
+JavaPractice
