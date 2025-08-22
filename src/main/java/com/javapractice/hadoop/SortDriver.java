@@ -27,8 +27,8 @@ public class SortDriver {
         job.setMapperClass(SortMapper.class);
         job.setReducerClass(SortReducer.class);
         //Mapの出力値のタイプ
-        job.setMapOutputKeyClass(Text.class);
-        job.setMapOutputValueClass(SortBean.class);
+        job.setMapOutputKeyClass(SortBean.class);
+        job.setMapOutputValueClass(NullWritable.class);
         //最終出力値のタイプ
         job.setOutputKeyClass(NullWritable.class);
         job.setOutputValueClass(SortBean.class);

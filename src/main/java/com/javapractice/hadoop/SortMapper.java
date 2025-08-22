@@ -2,6 +2,7 @@ package com.javapractice.hadoop;
 
 
 import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
@@ -13,11 +14,9 @@ import java.io.IOException;
  * @Author: Kanra
  * @Date: 2025/08/13
  */
-public class SortMapper extends Mapper<LongWritable, Text, Text, SortBean> {
-
-    Text model = new Text();
+public class SortMapper extends Mapper<LongWritable, Text, SortBean, NullWritable> {
     @Override
-    protected void map(LongWritable key, Text value, Mapper<LongWritable, Text, Text, SortBean>.Context context)
+    protected void map(LongWritable key, Text value, Mapper<LongWritable, Text, SortBean, NullWritable>.Context context)
             throws IOException, InterruptedException {
         //一行文字を取得
         String str = value.toString();
@@ -29,7 +28,6 @@ public class SortMapper extends Mapper<LongWritable, Text, Text, SortBean> {
         sortBean.setNetIp(strs[2]);
         sortBean.setUsageTime(Long.parseLong(strs[3]));
         //出力
-        model.set(strs[0]);
-        context.write(model, sortBean);
+        context.write(sortBean, NullWritable.get());
     }
 }
