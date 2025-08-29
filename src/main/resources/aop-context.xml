@@ -1,0 +1,21 @@
+<!-- src/main/resources/aop-context.xml -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop   https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- 対象クラス -->
+    <bean id="greetingService" class="com.javapractice.aop.GreetingServiceImpl"/>
+
+    <!-- アドバイス -->
+    <bean id="timeAdvice" class="com.javapractice.aop.TimeLoggingAdvice"/>
+
+    <!-- ポイントカット＆アドバイザ -->
+    <aop:config>
+        <!-- com.javapractice.other配下の *Service.*(..) を対象 -->
+        <aop:advisor advice-ref="timeAdvice"
+                     pointcut="execution(* com.javapractice.aop.*Service.*(..))"/>
+    </aop:config>
+</beans>

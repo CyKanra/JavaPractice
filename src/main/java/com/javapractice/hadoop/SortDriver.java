@@ -35,7 +35,7 @@ public class SortDriver {
 
         job.setNumReduceTasks(0);
         //入力と出力ファイルのアドレス
-        FileInputFormat.setInputPaths(job, new Path("D:\\partition.txt"));
+        FileInputFormat.setInputPaths(job, new Path("D:\\intput.txt"));
         FileOutputFormat.setOutputPath(job, new Path("D:\\output"));
         //タスクをコミット
         boolean result = job.waitForCompletion(true);
