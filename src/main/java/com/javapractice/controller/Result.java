@@ -26,6 +26,16 @@ public class Result<T> {
         return str;
     }
 
+    public static Map<String, Object> successMap(Object object) {
+
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("code", "200");
+        map.put("message", "成功");
+        map.put("data", object);
+
+        return map;
+    }
+
     public static String success(String msg) {
 
         String str = "{}";
@@ -37,7 +47,6 @@ public class Result<T> {
         } catch (Exception e) {
 //            log.error(e.getMessage());
         }
-
         return str;
     }
 
