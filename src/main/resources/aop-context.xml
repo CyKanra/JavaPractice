@@ -7,13 +7,16 @@
         http://www.springframework.org/schema/aop   https://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!-- 対象クラス -->
-    <bean id="greetingService" class="com.javapractice.aop.GreetingServiceImpl"/>
+<!--    <bean id="greetingService" class="com.javapractice.aop.GreetingServiceImpl"/>-->
 
     <!-- アドバイス -->
     <bean id="timeAdvice" class="com.javapractice.aop.TimeLoggingAdvice"/>
 
     <!-- ポイントカット＆アドバイザ -->
     <aop:config>
+        <aop:advisor advice-ref="timeAdvice"
+                     pointcut="execution(* com.javapractice.controller.*Controller.*(..))"/>
+
         <!-- com.javapractice.other配下の *Service.*(..) を対象 -->
         <aop:advisor advice-ref="timeAdvice"
                      pointcut="execution(* com.javapractice.aop.*Service.*(..))"/>

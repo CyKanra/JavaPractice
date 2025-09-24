@@ -1,5 +1,8 @@
 package com.javapractice.aop;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class GreetingServiceImpl implements GreetingService{
     @Override
     public String hello(String name) {

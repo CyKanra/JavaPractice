@@ -1,5 +1,8 @@
 package com.javapractice.controller;
 
+import com.javapractice.aop.GreetingService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -10,6 +13,9 @@ import java.util.Map;
 @RestController
 @RequestMapping(value="api/ApiDemo/")
 public class ApiDemoController {
+
+    @Autowired
+    private GreetingService svc;
 
     @GetMapping(value = "studentListGet")
     public Map<String, Object> queryStudentListGet(@RequestParam Long classId) {
@@ -48,6 +54,9 @@ public class ApiDemoController {
         students.add(s1);
         students.add(s2);
         students.add(s3);
+
+            String result = svc.hello("Java");
+            System.out.println("result = " + result);
 
         // クラスに学生をセット
         classBean.setStudentBeanList(students);
